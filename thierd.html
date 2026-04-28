@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIGHTHOUSE</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+    }
+
+    .header {
+      background: #2196F3;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header img.logo {
+      height: 90px;
+      margin-right: 20px;
+    }
+
+    .title { font-size: 22px; font-weight: bold; }
+    .slogan { font-size: 14px; }
+
+    .lang-select {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .navbar {
+      display: flex;
+      background: #0d47a1;
+      padding: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      background: #1976D2;
+      border-radius: 5px;
+    }
+
+    .video-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      padding: 20px;
+    }
+
+    .video-card {
+      height: 250px;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      background: #000;
+    }
+
+    .video-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-title {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .play-button:after {
+      content: '';
+      border-style: solid;
+      border-width: 15px 0 15px 25px;
+      border-color: transparent transparent transparent white;
+      margin-left: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div style="display: flex; align-items: center;">
+    <img src="logo.jpeg" alt="CyberShield Logo" class="logo">
+    <div>
+      <div class="title" data-key="title"></div>
+      <div class="slogan" data-key="slogan"></div>
+    </div>
+  </div>
+
+  <select class="lang-select" onchange="changeLanguage(this.value)">
+    <option value="en">English</option>
+    <option value="hi">हिन्दी</option>
+    <option value="mr">मराठी</option>
+  </select>
+</div>
+
+<!-- Navbar -->
+<div class="navbar">
+  <a href="secoand.html" data-key="login">Login</a>
+  <a href="thierd.html" onclick="checkLogin(event)" data-key="recentNews">Recent News</a>
+  <a href="forth.html" onclick="checkLogin(event)" data-key="types">Cybercrime & E-Payment</a>
+  <a href="fourth 2.html" onclick="checkLogin(event)" data-key="howto">How to Face</a>
+  <a href="CHATBOAT.HTML" onclick="checkLogin(event)" data-key="solution">Solution</a>
+  <a href="map.html" onclick="checkLogin(event)" data-key="map">Map</a>
+  <a href="sixth.html" onclick="checkLogin(event)" data-key="helpline">Helpline Number</a>
+  <a href="seven.html" onclick="checkLogin(event)" data-key="feedback">Feedback</a>
+</div>
+
+<!-- Title -->
+<h2 style="text-align:center; margin: 30px 0;" data-key="heading">
+  Cybersecurity Awareness & Learning Series
+</h2>
+
+<!-- Videos -->
+<div class="video-container">
+
+  <div class="video-card" onclick="loadVideo(this, 'inWWhr5tnEA')">
+    <img src="https://img.youtube.com/vi/inWWhr5tnEA/maxresdefault.jpg">
+    <div class="video-title" data-key="v1">Cybersecurity Basics</div>
+    <div class="play-button"></div>
+  </div>
+
+  <div class="video-card" onclick="loadVideo(this, 'U_P23SqJaDc')">
+    <img src="https://img.youtube.com/vi/U_P23SqJaDc/maxresdefault.jpg">
+    <div class="video-title" data-key="v2">Cybersecurity Crash Course</div>
+    <div class="play-button"></div>
+  </div>
+
+  <div class="video-card" onclick="loadVideo(this, 'U7VwtOrwceo')">
+    <img src="https://img.youtube.com/vi/U7VwtOrwceo/maxresdefault.jpg">
+    <div class="video-title" data-key="v3">Cybercrime Explained</div>
+    <div class="play-button"></div>
+  </div>
+
+  <div class="video-card" onclick="loadVideo(this, '3Kq1MIfTWCE')">
+    <img src="https://img.youtube.com/vi/3Kq1MIfTWCE/maxresdefault.jpg">
+    <div class="video-title" data-key="v4">AI in Cybersecurity</div>
+    <div class="play-button"></div>
+  </div>
+
+  <div class="video-card" onclick="loadVideo(this, 'KHPGXHHKrdc')">
+    <img src="https://img.youtube.com/vi/KHPGXHHKrdc/maxresdefault.jpg">
+    <div class="video-title" data-key="v5">Government Schemes</div>
+    <div class="play-button"></div>
+  </div>
+
+  <div class="video-card" onclick="loadVideo(this, '6uSVVCmOH5w')">
+    <img src="https://img.youtube.com/vi/6uSVVCmOH5w/maxresdefault.jpg">
+    <div class="video-title" data-key="v6">Types of Cyber Attacks</div>
+    <div class="play-button"></div>
+  </div>
+
+  <div class="video-card" onclick="loadVideo(this, 'z5nc9MDbvkw')">
+    <img src="https://img.youtube.com/vi/z5nc9MDbvkw/maxresdefault.jpg">
+    <div class="video-title" data-key="v7">Introduction to Cyber Security</div>
+    <div class="play-button"></div>
+  </div>
+
+  <div class="video-card" onclick="loadVideo(this, '2TofunAI6fU')">
+    <img src="https://img.youtube.com/vi/2TofunAI6fU/maxresdefault.jpg">
+    <div class="video-title" data-key="v8">Top Cyber Security Threats</div>
+    <div class="play-button"></div>
+  </div>
+
+  <div class="video-card" onclick="loadVideo(this, 'yrln8nyVBLU')">
+    <img src="https://img.youtube.com/vi/yrln8nyVBLU/maxresdefault.jpg">
+    <div class="video-title" data-key="v9">Ethical Hacking Basics</div>
+    <div class="play-button"></div>
+  </div>
+
+</div>
+
+<script>
+function loadVideo(container, videoId) {
+  container.innerHTML = `
+    <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1"
+    allowfullscreen style="width:100%; height:100%; border:none;"></iframe>`;
+}
+
+const translations = {
+  en: {
+    title:"", slogan:"", login:"Login",
+    recentNews:"Recent News", types:"Cybercrime & E-Payment", howto:"How to Face",
+    solution:"Solution", map:"Map", helpline:"Helpline", feedback:"Feedback",
+    heading:"Cybersecurity Awareness & Learning Series",
+    v1:"Cybersecurity Basics", v2:"Cybersecurity Crash Course",
+    v3:"Cybercrime Explained", v4:"AI in Cybersecurity",
+    v5:"Government Schemes", v6:"Types of Cyber Attacks",
+    v7:"Introduction to Cyber Security", v8:"Top Cyber Security Threats",
+    v9:"Ethical Hacking Basics"
+  },
+
+  hi: {title:"", slogan:"",
+    login:"लॉगिन",
+recentNews:"हाल की खबरें",
+types:"साइबर अपराध और भुगतान",
+howto:"कैसे सामना करें",
+solution:"समाधान",
+map:"मानचित्र",
+helpline:"हेल्पलाइन नंबर",
+feedback:"प्रतिक्रिया",
+    heading:"साइबर सुरक्षा जागरूकता वीडियो",
+    v1:"साइबर सुरक्षा की मूल बातें", v2:"साइबर सुरक्षा कोर्स",
+    v3:"साइबर अपराध", v4:"एआई और साइबर सुरक्षा",
+    v5:"सरकारी योजनाएं", v6:"साइबर हमलों के प्रकार",
+    v7:"साइबर सुरक्षा परिचय", v8:"मुख्य खतरे",
+    v9:"एथिकल हैकिंग"
+  },
+
+  mr: {title:"", slogan:"",
+    login:"लॉगिन",
+recentNews:"बातम्या",
+types:"सायबर गुन्हे आणि पेमेंट",
+howto:"कसा सामना करावा",
+solution:"उपाय",
+map:"नकाशा",
+helpline:"हेल्पलाइन",
+feedback:"अभिप्राय",
+    heading:"सायबर सुरक्षा जागरूकता व्हिडिओ",
+    v1:"सायबर सुरक्षा मूलभूत", v2:"सायबर कोर्स",
+    v3:"सायबर गुन्हे", v4:"AI आणि सुरक्षा",
+    v5:"सरकारी योजना", v6:"हल्ल्यांचे प्रकार",
+    v7:"परिचय", v8:"मुख्य धोके", v9:"एथिकल हॅकिंग"
+  }
+};
+
+function changeLanguage(lang){
+  document.querySelectorAll("[data-key]").forEach(el=>{
+    el.innerText = translations[lang][el.getAttribute("data-key")];
+  });
+}
+</script>
+
+</body>
+</html>

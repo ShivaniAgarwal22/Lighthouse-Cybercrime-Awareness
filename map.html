@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>LIGHTHOUSE</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #1a0000, #990000, #ff6600);
+      color: white;
+    }
+    .header {
+      background: #2da4ff;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header img { height: 65px; margin-right: 10px; }
+    .header .title { display: flex; align-items: center; }
+    .header h2 { margin: 0; }
+    .header p { margin: 0; font-size: 14px; }
+    .language-select { margin-left: auto; padding: 5px; border-radius: 5px; border: none; }
+    .navbar { background: #003f91; padding: 10px; text-align: center; }
+    .navbar a { color: #cbd8f0; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    .navbar a:hover { color: #ffffff; }
+    #map {
+      height: 75vh;
+      width: 90%;
+      margin: 20px auto;
+      border: 5px solid #c7c3b1;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+    footer { background: #f0ede0; color: #000; padding: 10px; font-size: 14px; font-weight: bold; text-align: center; }
+    .legend {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .legend span { display: flex; align-items: center; margin-bottom: 5px; }
+    .legend img { margin-right: 6px; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="title">
+      <img src="logo.jpeg" alt="Logo">
+      <div>
+        <h2 id="siteTitle"></h2>
+        <p id="siteTagline"></p>
+      </div>
+    </div>
+    <select class="language-select" onchange="changeLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="hi">हिंदी</option>
+      <option value="mr">मराठी</option>
+    </select>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="secoand.html" id="navLogin">Login</a>
+    <a href="thierd.html" id="navNews">Recent News</a>
+    <a href="forth.html" id="navCrime">Cybercrime & E-Payment</a>
+    <a href="fourth 2.html" id="navFace">How to Face</a>
+    <a href="CHATBOAT.HTML" id="navSolution">Solution</a>
+    <a href="map.html" id="navMap">Map</a>
+    <a href="sixth.html" id="navHelpline">Helpline Number</a>
+    <a href="seven.html" id="navFeedback">Feedback</a>
+  </div>
+
+  <!-- Map -->
+  <div id="map"></div>
+
+  <footer id="footerText">Developed with ❤️ | CYBER SHIELD AI</footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([20.5937, 78.9629], 5);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>',
+      maxZoom: 19
+    }).addTo(map);
+
+    function onLocationFound(e) {
+      const lat = e.latlng.lat;
+      const lng = e.latlng.lng;
+      const radius = e.accuracy / 2;
+
+      L.marker(e.latlng, {
+        icon: L.icon({iconUrl:'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'})
+      }).addTo(map).bindPopup("You are here").openPopup();
+
+      L.circle(e.latlng, radius, {
+        color: "#ffcc00",
+        fillColor: "#ffcc00",
+        fillOpacity: 0.3
+      }).addTo(map);
+
+      const police = [ [lat + 0.01, lng + 0.01], [lat - 0.01, lng - 0.01] ];
+      const cyber = [ [lat + 0.02, lng - 0.01] ];
+
+      police.forEach(loc => {
+        L.marker(loc, {
+          icon: L.icon({iconUrl:'https://maps.google.com/mapfiles/ms/icons/red-dot.png'})
+        }).addTo(map).bindPopup("Police Station");
+      });
+
+      cyber.forEach(loc => {
+        L.marker(loc, {
+          icon: L.icon({iconUrl:'https://maps.google.com/mapfiles/ms/icons/green-dot.png'})
+        }).addTo(map).bindPopup("Cyber Security Office");
+      });
+    }
+
+    map.on('locationfound', onLocationFound);
+    map.on('locationerror', () => {
+      alert("Could not detect your location");
+    });
+
+    window.onload = () => {
+      map.locate({setView: true, maxZoom: 16});
+    };
+
+    const legend = L.control({position: "bottomleft"});
+    legend.onAdd = function () {
+      const div = L.DomUtil.create("div", "legend");
+      div.innerHTML = `
+        <span><img src="https://maps.google.com/mapfiles/ms/icons/blue-dot.png"> You</span>
+        <span><img src="https://maps.google.com/mapfiles/ms/icons/red-dot.png"> Police Station</span>
+        <span><img src="https://maps.google.com/mapfiles/ms/icons/green-dot.png"> Cybersecurity Office</span>
+      `;
+      return div;
+    };
+    legend.addTo(map);
+
+    // Translations
+    const translations = {
+      en: {
+        siteTitle: "",
+        siteTagline: "",
+        navLogin: "Login",
+        navNews: "Recent News",
+        navCrime: "Cybercrime & E-Payment",
+        navFace: "How to Face",
+        navSolution: "Solution",
+        navMap: "Map",
+        navHelpline: "Helpline Number",
+        navFeedback: "Feedback",
+        footerText: "Developed with ❤️ | CYBER SHIELD AI"
+      },
+      hi: {
+        siteTitle: "",
+        siteTagline: "",
+        navLogin: "लॉगिन",
+        navNews: "हाल की खबरें",
+        navCrime: "साइबर अपराध और भुगतान",
+        navFace: "कैसे सामना करें",
+        navSolution: "समाधान",
+        navMap: "मानचित्र",
+        navHelpline: "हेल्पलाइन नंबर",
+        navFeedback: "प्रतिक्रिया",
+        footerText: "❤️ के साथ विकसित | साइबर शील्ड एआई"
+      },
+      mr: {
+        siteTitle: "",
+        siteTagline: "",
+        navLogin: "लॉगिन",
+        navNews: "अलीकडील बातम्या",
+        navCrime: "सायबर गुन्हे आणि पेमेंट",
+        navFace: "कसा सामना करावा",
+        navSolution: "उपाय",
+        navMap: "नकाशा",
+        navHelpline: "हेल्पलाइन क्रमांक",
+        navFeedback: "प्रतिसाद",
+        footerText: "❤️ सह विकसित | साइबर शील्ड एआय"
+      }
+    };
+
+    // Language changer
+    function changeLanguage(lang) {
+      const t = translations[lang];
+      for (let key in t) {
+        const el = document.getElementById(key);
+        if (el) el.innerText = t[key];
+      }
+    }
+  </script>
+</body>
+</html>

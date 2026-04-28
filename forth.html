@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIGHTHOUSE</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f9ff;
+  margin: 0;
+}
+
+.header {
+  background: #2da4ff;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo-title img {
+  height: 60px;
+  margin-right: 10px;
+}
+
+.navbar {
+  background: #003f91;
+  text-align: center;
+  padding: 10px;
+}
+
+.navbar a {
+  color: #cbd8f0;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  color: #004aad;
+}
+
+.crime-list {
+  max-width: 700px;
+  margin: 20px auto;
+  list-style: none;
+  padding: 0;
+}
+
+.crime-item {
+  background: white;
+  border: 2px solid #004aad;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.crime-meaning {
+  display: none;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo-title">
+    <!-- Put your logo in same folder -->
+    <img src="logo.jpeg" alt="CyberShield Logo" class="logo">
+    <h2 id="siteTitle"></h2>
+  </div>
+
+  <select onchange="changeLanguage(this.value)">
+    <option value="en">English</option>
+    <option value="hi">हिंदी</option>
+    <option value="mr">मराठी</option>
+  </select>
+</div>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <a href="secoand.html" data-key="login">Login</a>
+  <a href="thierd.html" onclick="checkLogin(event)" data-key="recentNews">Recent News</a>
+  <a href="forth.html" onclick="checkLogin(event)" data-key="types">Cybercrime & E-Payment</a>
+  <a href="fourth 2.html" onclick="checkLogin(event)" data-key="howto">How to Face</a>
+  <a href="CHATBOAT.HTML" onclick="checkLogin(event)" data-key="solution">Solution</a>
+  <a href="map.html" onclick="checkLogin(event)" data-key="map">Map</a>
+  <a href="sixth.html" onclick="checkLogin(event)" data-key="helpline">Helpline Number</a>
+  <a href="seven.html" onclick="checkLogin(event)" data-key="feedback">Feedback</a>
+</div>
+
+<!-- CYBER CRIME -->
+<h1 id="cyberTitle"></h1>
+
+<ul class="crime-list">
+  <li class="crime-item" onclick="toggleMeaning(this)">
+    <span data-key="phishing"></span>
+    <div class="crime-meaning" data-key="phishingText"></div>
+  </li>
+
+  <li class="crime-item" onclick="toggleMeaning(this)">
+    <span data-key="hacking"></span>
+    <div class="crime-meaning" data-key="hackingText"></div>
+  </li>
+
+  <li class="crime-item" onclick="toggleMeaning(this)">
+    <span data-key="identity"></span>
+    <div class="crime-meaning" data-key="identityText"></div>
+  </li>
+
+  <li class="crime-item" onclick="toggleMeaning(this)">
+    <span data-key="ransomware"></span>
+    <div class="crime-meaning" data-key="ransomwareText"></div>
+  </li>
+
+  <li class="crime-item" onclick="toggleMeaning(this)">
+    <span data-key="cyberstalking"></span>
+    <div class="crime-meaning" data-key="cyberstalkingText"></div>
+  </li>
+
+  <li class="crime-item" onclick="toggleMeaning(this)">
+    <span data-key="spamming"></span>
+    <div class="crime-meaning" data-key="spammingText"></div>
+  </li>
+
+  <li class="crime-item" onclick="toggleMeaning(this)">
+    <span data-key="other"></span>
+    <div class="crime-meaning" data-key="otherText"></div>
+  </li>
+</ul>
+
+<!-- FRAUD -->
+<h1 id="fraudTitle"></h1>
+
+<ul class="crime-list">
+  <li class="crime-item" onclick="toggleMeaning(this)">
+    <span data-key="upi"></span>
+    <div class="crime-meaning" data-key="upiText"></div>
+  </li>
+
+  <li class="crime-item" onclick="toggleMeaning(this)">
+    <span data-key="otp"></span>
+    <div class="crime-meaning" data-key="otpText"></div>
+  </li>
+
+  <li class="crime-item" onclick="toggleMeaning(this)">
+    <span data-key="sim"></span>
+    <div class="crime-meaning" data-key="simText"></div>
+  </li>
+
+  <li class="crime-item" onclick="toggleMeaning(this)">
+    <span data-key="link"></span>
+    <div class="crime-meaning" data-key="linkText"></div>
+  </li>
+
+  <li class="crime-item" onclick="toggleMeaning(this)">
+    <span data-key="otherFraud"></span>
+    <div class="crime-meaning" data-key="otherFraudText"></div>
+  </li>
+</ul>
+
+<script>
+const translations = {
+
+en:{
+siteTitle:"",
+cyberTitle:"Types of Cyber Crime",
+fraudTitle:"Types of Digital Payment Fraud",
+
+login:"Login",
+recentNews:"Recent News",
+types:"Cybercrime & E-Payment",
+howto:"How to Face",
+solution:"Solution",
+map:"Map",
+helpline:"Helpline Number",
+feedback:"Feedback",
+
+phishing:"Phishing", phishingText:"Fake emails/websites to steal info.",
+hacking:"Hacking", hackingText:"Unauthorized system access.",
+identity:"Identity Theft", identityText:"Stealing personal data.",
+ransomware:"Ransomware", ransomwareText:"Locks data and demands money.",
+cyberstalking:"Cyber Stalking", cyberstalkingText:"Online harassment.",
+spamming:"Spamming", spammingText:"Unwanted messages.",
+other:"Other Cyber Crimes", otherText:"Includes piracy, data breaches etc.",
+
+upi:"UPI Fraud", upiText:"Fake QR/payment requests.",
+otp:"OTP Fraud", otpText:"Tricking users to share OTP.",
+sim:"SIM Swap", simText:"Duplicate SIM fraud.",
+link:"Fake Links", linkText:"Fraud payment links.",
+otherFraud:"Other Frauds", otherFraudText:"Lottery, cashback scams."
+},
+
+hi:{
+siteTitle:"",
+cyberTitle:"साइबर अपराध के प्रकार",
+fraudTitle:"डिजिटल भुगतान धोखाधड़ी",
+
+login:"लॉगिन",
+recentNews:"हाल की खबरें",
+types:"साइबर अपराध और भुगतान",
+howto:"कैसे सामना करें",
+solution:"समाधान",
+map:"मानचित्र",
+helpline:"हेल्पलाइन नंबर",
+feedback:"प्रतिक्रिया",
+
+phishing:"फ़िशिंग", phishingText:"नकली ईमेल से चोरी।",
+hacking:"हैकिंग", hackingText:"अनधिकृत एक्सेस।",
+identity:"पहचान चोरी", identityText:"डेटा चोरी।",
+ransomware:"रैनसमवेयर", ransomwareText:"डेटा लॉक।",
+cyberstalking:"साइबर स्टॉकिंग", cyberstalkingText:"ऑनलाइन पीछा।",
+spamming:"स्पैमिंग", spammingText:"अनचाहे संदेश।",
+other:"अन्य साइबर अपराध", otherText:"पाइरेसी आदि।",
+
+upi:"UPI धोखाधड़ी", upiText:"फर्जी QR।",
+otp:"OTP धोखाधड़ी", otpText:"OTP चोरी।",
+sim:"SIM स्वैप", simText:"डुप्लीकेट SIM।",
+link:"फर्जी लिंक", linkText:"धोखाधड़ी लिंक।",
+otherFraud:"अन्य धोखाधड़ी", otherFraudText:"लॉटरी आदि।"
+},
+
+mr:{
+siteTitle:"",
+cyberTitle:"सायबर गुन्हे",
+fraudTitle:"डिजिटल फसवणूक",
+
+login:"लॉगिन",
+recentNews:"बातम्या",
+types:"सायबर गुन्हे आणि पेमेंट",
+howto:"कसा सामना करावा",
+solution:"उपाय",
+map:"नकाशा",
+helpline:"हेल्पलाइन",
+feedback:"अभिप्राय",
+
+phishing:"फिशिंग", phishingText:"बनावट ईमेल.",
+hacking:"हॅकिंग", hackingText:"अनधिकृत प्रवेश.",
+identity:"ओळख चोरी", identityText:"डेटा चोरी.",
+ransomware:"रॅन्समवेअर", ransomwareText:"डेटा लॉक.",
+cyberstalking:"सायबर स्टॉकिंग", cyberstalkingText:"छळ.",
+spamming:"स्पॅमिंग", spammingText:"अनावश्यक संदेश.",
+other:"इतर गुन्हे", otherText:"पायरेसी इ.",
+
+upi:"UPI फसवणूक", upiText:"खोटे QR.",
+otp:"OTP फसवणूक", otpText:"OTP चोरी.",
+sim:"SIM स्वॅप", simText:"डुप्लिकेट SIM.",
+link:"खोटे लिंक", linkText:"फसवे लिंक.",
+otherFraud:"इतर फसवणूक", otherFraudText:"लॉटरी इ."
+}
+};
+
+function changeLanguage(lang){
+const t = translations[lang];
+
+document.getElementById("siteTitle").innerText = t.siteTitle;
+document.getElementById("cyberTitle").innerText = t.cyberTitle;
+document.getElementById("fraudTitle").innerText = t.fraudTitle;
+
+document.querySelectorAll("[data-key]").forEach(el=>{
+  el.innerText = t[el.dataset.key];
+});
+}
+
+function toggleMeaning(item){
+const m = item.querySelector(".crime-meaning");
+m.style.display = m.style.display==="block"?"none":"block";
+}
+
+
+
+changeLanguage("en");
+</script>
+
+</body>
+</html>

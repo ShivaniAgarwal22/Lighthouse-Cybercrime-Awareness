@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LIGHTHOUSE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin:0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, white);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+      color:#e2e8f0;
+      min-height:100vh;
+    }
+    @keyframes gradientMove {
+      0%{background-position:0% 20%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    /* HEADER */
+    .header-top {
+      background-color: #2196F3;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+    .header-left img {
+      height: 90px;
+      margin-right: 35px;
+    }
+    .header-left h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+    .header-left p {
+      margin: 0;
+      font-size: 14px;
+    }
+    .language-select {
+      background-color: white;
+      color: black;
+      padding: 5px;
+      border-radius: 2px;
+      font-weight: 10;
+      width: 84px;
+    }
+
+    /* NAVBAR */
+    .nav-bar {
+      background-color: #0b3d91;
+      display: flex;
+      justify-content: center;
+      padding: 12px 0;
+      gap: 25px;
+    }
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+    .nav-bar a:hover {
+      color: #ffcc00;
+    }
+
+    /* FEEDBACK FORM */
+    .feedback-container {
+      max-width:600px;
+      margin:30px auto;
+      background: rgba(30,41,59,0.85);
+      padding:30px;
+      border-radius:16px;
+      box-shadow:0 8px 32px rgba(0,0,0,0.4);
+      backdrop-filter: blur(12px);
+    }
+    .feedback-container h2 {
+      text-align:center;
+      margin-bottom:20px;
+      color:#facc15;
+    }
+    label {
+      display:block;
+      margin:12px 0 6px;
+      font-weight:600;
+    }
+    input, select, textarea {
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:10px;
+      background: rgba(255,255,255,0.1);
+      color:white;
+      font-size:14px;
+      margin-bottom:15px;
+    }
+    textarea {
+      resize:none;
+      height:100px;
+    }
+    button {
+      display:block;
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:12px;
+      background: linear-gradient(135deg,#2563eb,#9333ea);
+      color:white;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      transition:transform 0.2s, background 0.3s;
+    }
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg,#1d4ed8,#7e22ce);
+    }
+
+    /* POPUP */
+    .popup {
+      display:none;
+      position:fixed;
+      top:0; left:0; right:0; bottom:0;
+      background:rgba(0,0,0,0.6);
+      justify-content:center;
+      align-items:center;
+      z-index:999;
+    }
+    .popup-content {
+      background:white;
+      color:black;
+      padding:30px;
+      border-radius:16px;
+      text-align:center;
+      max-width:400px;
+      animation: pop 0.4s ease;
+    }
+    @keyframes pop {
+      from{transform:scale(0.7);opacity:0}
+      to{transform:scale(1);opacity:1}
+    }
+    .popup-content h3 {
+      margin:0 0 10px;
+      color:#2563eb;
+    }
+    .popup-content p {
+      margin-bottom:20px;
+    }
+    .popup-content button {
+      background:#2563eb;
+      border:none;
+      padding:10px 20px;
+      border-radius:10px;
+      color:white;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header-top">
+    <div class="header-left">
+      <img src="logo.jpeg" alt="Logo">
+      <div>
+        <h1 id="title"></h1>
+        <p id="subtitle"></p>
+      </div>
+    </div>
+    <select class="language-select" id="language">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="mr">मराठी</option>
+    </select>
+  </div>
+
+  <!-- NAVBAR -->
+  <div class="nav-bar">
+    <a href="secoand.html" id="nav-login">Login</a>
+    <a href="thierd.html" id="nav-news">Recent News</a>
+    <a href="forth.html" id="nav-crime">Cybercrime & E-Payment</a>
+    <a href="fourth2.html" id="nav-face">How to Face</a>
+    <a href="CHATBOAT.HTML" id="nav-solution">Solution</a>
+    <a href="map.html" id="nav-map">Map</a>
+    <a href="sixth.html" id="nav-helpline">Helpline Number</a>
+    <a href="secoand.html" id="nav-feedback">Feedback</a>
+  </div>
+
+  <!-- FEEDBACK FORM -->
+  <div class="feedback-container">
+    <h2 id="form-title">Share Your Feedback</h2>
+    <form id="feedbackForm">
+      <label for="name" id="label-name">Full Name</label>
+      <input type="text" id="name" required>
+
+      <label for="email" id="label-email">Email</label>
+      <input type="email" id="email" required>
+
+      <label for="experience" id="label-exp">How was your experience with AI support?</label>
+      <select id="experience" required>
+        <option value="">-- Select --</option>
+        <option value="excellent" id="exp-excellent">Excellent</option>
+        <option value="good" id="exp-good">Good</option>
+        <option value="average" id="exp-average">Average</option>
+        <option value="poor" id="exp-poor">Poor</option>
+      </select>
+
+      <label for="crime" id="label-crime">Did this help you understand cybercrime better?</label>
+      <select id="crime" required>
+        <option value="">-- Select --</option>
+        <option value="yes" id="crime-yes">Yes, very helpful</option>
+        <option value="somewhat" id="crime-somewhat">Somewhat helpful</option>
+        <option value="no" id="crime-no">Not really</option>
+      </select>
+
+      <label for="suggestions" id="label-sug">Your Suggestions</label>
+      <textarea id="suggestions" placeholder="Write your feedback..."></textarea>
+
+      <button type="submit" id="btn-submit">Submit Feedback</button>
+    </form>
+  </div>
+
+  <!-- POPUP -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h3 id="popup-title">🎉 Thank You!</h3>
+      <p id="popup-msg">Your feedback helps us improve CyberShield with AI.</p>
+      <button onclick="closePopup()" id="popup-close">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        title: "",
+        subtitle: "",
+        nav: ["Login","Recent News","Cybercrime & E-Payment","How to Face","Solution","Map","Helpline Number","Feedback"],
+        formTitle: "Share Your Feedback",
+        name: "Full Name",
+        email: "Email",
+        exp: "How was your experience with AI support?",
+        expOpt: ["Excellent","Good","Average","Poor"],
+        crime: "Did this help you understand cybercrime better?",
+        crimeOpt: ["Yes, very helpful","Somewhat helpful","Not really"],
+        sug: "Your Suggestions",
+        submit: "Submit Feedback",
+        popupTitle: "🎉 Thank You!",
+        popupMsg: "Your feedback helps us improve CyberShield with AI.",
+        popupClose: "Close"
+      },
+      hi: {
+        title: "",
+        subtitle: "",
+        nav: ["लॉगिन","हाल की खबरें","साइबर अपराध और भुगतान","कैसे सामना करें","समाधान","नक्शा","हेल्पलाइन नंबर","प्रतिक्रिया"],
+        formTitle: "अपनी प्रतिक्रिया साझा करें",
+        name: "पूरा नाम",
+        email: "ईमेल",
+        exp: "एआई सहायता के साथ आपका अनुभव कैसा रहा?",
+        expOpt: ["उत्कृष्ट","अच्छा","औसत","खराब"],
+        crime: "क्या इससे आपको साइबर अपराध को बेहतर समझने में मदद मिली?",
+        crimeOpt: ["हाँ, बहुत मददगार","कुछ हद तक मददगार","नहीं"],
+        sug: "आपके सुझाव",
+        submit: "प्रतिक्रिया सबमिट करें",
+        popupTitle: "🎉 धन्यवाद!",
+        popupMsg: "आपकी प्रतिक्रिया हमें साइबरशील्ड को और बेहतर बनाने में मदद करती है।",
+        popupClose: "बंद करें"
+      },
+      mr: {
+        title: "",
+        subtitle: "",
+        nav: ["लॉगिन","ताज्या बातम्या","सायबर गुन्हे आणि पेमेंट","कसे सामोरे जावे","उपाय","नकाशा","हेल्पलाइन नंबर","अभिप्राय"],
+        formTitle: "तुमचा अभिप्राय द्या",
+        name: "पूर्ण नाव",
+        email: "ईमेल",
+        exp: "एआय सहाय्याबरोबर तुमचा अनुभव कसा होता?",
+        expOpt: ["उत्कृष्ट","चांगला","साधारण","खराब"],
+        crime: "यामुळे तुम्हाला सायबर गुन्हे अधिक चांगल्या प्रकारे समजले का?",
+        crimeOpt: ["हो, खूप मदत झाली","काही प्रमाणात मदत झाली","नाही"],
+        sug: "तुमचे सुचवणे",
+        submit: "अभिप्राय सबमिट करा",
+        popupTitle: "🎉 धन्यवाद!",
+        popupMsg: "तुमचा अभिप्राय आम्हाला सायबरशील्ड सुधारण्यास मदत करतो.",
+        popupClose: "बंद करा"
+      }
+    };
+
+    const langSelect = document.getElementById("language");
+    function applyLang(lang){
+      const t = translations[lang];
+      document.getElementById("title").innerText = t.title;
+      document.getElementById("subtitle").innerText = t.subtitle;
+      const navs = ["nav-login","nav-news","nav-crime","nav-face","nav-solution","nav-map","nav-helpline","nav-feedback"];
+      navs.forEach((id,i)=> document.getElementById(id).innerText = t.nav[i]);
+      document.getElementById("form-title").innerText = t.formTitle;
+      document.getElementById("label-name").innerText = t.name;
+      document.getElementById("label-email").innerText = t.email;
+      document.getElementById("label-exp").innerText = t.exp;
+      document.getElementById("exp-excellent").innerText = t.expOpt[0];
+      document.getElementById("exp-good").innerText = t.expOpt[1];
+      document.getElementById("exp-average").innerText = t.expOpt[2];
+      document.getElementById("exp-poor").innerText = t.expOpt[3];
+      document.getElementById("label-crime").innerText = t.crime;
+      document.getElementById("crime-yes").innerText = t.crimeOpt[0];
+      document.getElementById("crime-somewhat").innerText = t.crimeOpt[1];
+      document.getElementById("crime-no").innerText = t.crimeOpt[2];
+      document.getElementById("label-sug").innerText = t.sug;
+      document.getElementById("btn-submit").innerText = t.submit;
+      document.getElementById("popup-title").innerText = t.popupTitle;
+      document.getElementById("popup-msg").innerText = t.popupMsg;
+      document.getElementById("popup-close").innerText = t.popupClose;
+    }
+    langSelect.addEventListener("change",()=> applyLang(langSelect.value));
+    applyLang("en");
+
+    // FEEDBACK SUBMIT
+    const form = document.getElementById("feedbackForm");
+    const popup = document.getElementById("popup");
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      popup.style.display = "flex";
+      form.reset();
+
+      // Auto close after 2 seconds OR redirect if close blocked
+      setTimeout(() => {
+        try {
+          window.close(); // try to close window
+          // If close fails, redirect to homepage
+          setTimeout(()=> window.location.href="index.html", 500);
+        } catch {
+          window.location.href="index.html";
+        }
+      }, 2000);
+    });
+
+    function closePopup(){
+      popup.style.display="none";
+    }
+  </script>
+</body>
+</html>

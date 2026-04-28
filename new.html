@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIGHTHOUSE</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+    }
+
+    /* Header */
+    .header {
+      background: #2196F3;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header img.logo {
+      height: 90px;
+      margin-right: 20px;
+    }
+
+    .header .title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .header .slogan {
+      font-size: 14px;
+    }
+
+    .lang-select {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      background: #0d47a1;
+      padding: 10px;
+      justify-content: center;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      background: #1976D2;
+      border-radius: 5px;
+    }
+
+    /* Section */
+    .container {
+      display: flex;
+      justify-content: space-around;
+      margin: 30px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      padding: 20px;
+      margin: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      height: 150px;
+      width: auto;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+    }
+    /* QR Code Section */
+    .qr-container {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .qr-container img {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div style="display: flex; align-items: center;">
+      <img src="logo.jpeg" alt="CyberShield Logo" class="logo">
+      <div>
+        <div class="title" data-key="title"></div>
+        <div class="slogan" id="slogan" data-key="slogan"></div>
+      </div>
+    </div>
+    <select class="lang-select" onchange="changeLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="mr">मराठी</option>
+    </select>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="secoand.html" data-key="login">Login</a>
+    <a href="thierd.html" onclick="checkLogin(event)" data-key="recentNews">Recent News</a>
+    <a href="forth.html" onclick="checkLogin(event)" data-key="types">Cybercrime & E-Payment</a>
+    <a href="fourth 2.html" onclick="checkLogin(event)" data-key="howto">How to Face</a>
+    <a href="CHATBOAT.HTML" onclick="checkLogin(event)" data-key="solution">Solution</a>
+    <a href="map.html" onclick="checkLogin(event)" data-key="map">Map</a>
+    <a href="sixth.html" onclick="checkLogin(event)" data-key="helpline">Helpline Number</a>
+    <a href="seven.html" onclick="checkLogin(event)" data-key="feedback">Feedback</a>
+  </div>
+
+  <!-- Main Section -->
+  <div class="container">
+    <div class="card">
+      <img src="C:\Users\PRIYA MISHRA\OneDrive\Desktop\2nd Ruchi\Financial Fraud" alt="Financial Fraud">
+      <h3>Financial Fraud</h3>
+    </div>
+    <div class="card">
+      <img src="C:\Users\PRIYA MISHRA\OneDrive\Desktop\2nd Ruchi\Hacking & Data Theft" alt="Hacking & Data Theft">
+      <h3>Hacking & Data Theft</h3>
+    </div>
+    <div class="card">
+      <img src="C:\Users\PRIYA MISHRA\OneDrive\Desktop\2nd Ruchi\Women" alt="Women/Children Safety">
+      <h3>Women/Children Safety</h3>
+    </div>
+    <div class="card">
+      <img src="C:\Users\PRIYA MISHRA\OneDrive\Desktop\2nd Ruchi\AI" alt="AI Phishing">
+      <h3>AI-powered phishing attacks</h3>
+    </div>
+    <div class="card">
+      <img src="C:\Users\PRIYA MISHRA\OneDrive\Desktop\2nd Ruchi\Identity-theft.webp" alt="Identity Theft">
+      <h3>Identity-theft</h3>
+    </div>
+    <div class="card">
+      <img src="C:\Users\PRIYA MISHRA\OneDrive\Desktop\2nd Ruchi\Ransomware.jpg" alt="Ransomware">
+      <h3>Ransomware attacks</h3>
+    </div>
+    <!-- Pages -->
+  <div class="page-section" id="news">
+    
+    
+  </div>
+  </div>
+
+  <script>
+    // Multi-language text
+    const translations = {
+      en: { title: "", slogan: "", login: "Login", recentNews: "Recent News", types: "Cybercrime & E-Payment", howto: "How to Face", solution: "Solution", map: "Map", helpline: "Helpline Number", feedback: "Feedback" },
+      hi: { title: "", slogan: "", login: "लॉगिन", recentNews: "ताज़ा खबरें", types: "साइबर अपराध के प्रकार", howto: "कैसे सामना करें", solution: "समाधान", map: "मानचित्र", helpline: "हेल्पलाइन नंबर", feedback: "प्रतिक्रिया" },
+      mr: { title: "", slogan: "", login: "लॉगिन", recentNews: "ताज्या बातम्या", types: "सायबर गुन्हे आणि पेमेंट", howto: "कसे सामोरे जावे", solution: "उपाय", map: "नकाशा", helpline: "हेल्पलाईन नंबर", feedback: "अभिप्राय" }
+    };
+
+    function changeLanguage(lang) {
+      document.querySelectorAll("[data-key]").forEach(el => {
+        const key = el.getAttribute("data-key");
+        el.innerText = translations[lang][key];
+      });
+    }
+
+    // Restrict pages until login
+    function checkLogin(event) {
+      if (!localStorage.getItem("isLoggedIn")) {
+        event.preventDefault();
+        alert("⚠️ Please login first to access this page!");
+        window.location.href = "secoand.html"; // redirect to login page
+      }
+    }
+  </script>
+
+</body>
+</html>

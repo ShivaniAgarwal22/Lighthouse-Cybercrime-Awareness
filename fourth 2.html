@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIGHTHOUSE</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f9ff;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header */
+    .header {
+      background: #2da4ff;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header img {
+      height: 80px;
+      margin-right: 10px;
+    }
+    .header .title {
+      display: flex;
+      align-items: center;
+    }
+    .header h2 {
+      margin: 0;
+    }
+    .header p {
+      margin: 0;
+      font-size: 14px;
+    }
+    .language-select {
+      margin-left: auto;
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #003f91;
+      padding: 10px;
+      text-align: center;
+    }
+    .navbar a {
+      color: #cbd8f0;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .navbar a:hover {
+      color: #ffffff;
+    }
+
+    /* Page Content */
+    h1 {
+      text-align: center;
+      color: #004aad;
+      margin: 20px 0;
+    }
+    .steps {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      border: 2px solid #004aad;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .step {
+      margin-bottom: 20px;
+    }
+    .step h3 {
+      color: #003f91;
+      margin-bottom: 8px;
+    }
+    .step p {
+      color: #333;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="title">
+      <img src="logo.jpeg" alt="Logo">
+      <div>
+        <h2 id="siteTitle"></h2>
+        <p id="siteTagline"></p>
+      </div>
+    </div>
+    <select class="language-select" onchange="changeLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="hi">हिंदी</option>
+      <option value="mr">मराठी</option>
+    </select>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="secoand.html" id="navLogin">Login</a>
+    <a href="thierd.html" id="navNews">Recent News</a>
+    <a href="forth.html" id="navCrime">Cybercrime & E-Payment</a>
+    <a href="fourth 2.html" id="navFace">How to Face</a>
+    <a href="CHATBOAT.HTML" id="navSolution">Solution</a>
+    <a href="map.html" id="navMap">Map</a>
+    <a href="sixth.html" id="navHelpline">Helpline Number</a>
+    <a href="seven.html" id="navFeedback">Feedback</a>
+  </div>
+
+  <!-- Page Content -->
+  <h1 id="pageTitle">How to Face Cyber Crime</h1>
+  <div class="steps">
+    <div class="step">
+      <h3 data-key="step1">1. Stay Calm</h3>
+      <p data-key="step1Text">Do not panic. Take a deep breath and carefully assess the situation before reacting.</p>
+    </div>
+    <div class="step">
+      <h3 data-key="step2">2. Collect Evidence</h3>
+      <p data-key="step2Text">Take screenshots, save emails, chats, or messages related to the crime. This will help in investigation.</p>
+    </div>
+    <div class="step">
+      <h3 data-key="step3">3. Change Passwords</h3>
+      <p data-key="step3Text">Immediately change passwords of your accounts, especially email, banking, and social media.</p>
+    </div>
+    <div class="step">
+      <h3 data-key="step4">4. Report the Crime</h3>
+      <p data-key="step4Text">Report the incident to the official cybercrime website (<a href="https://cybercrime.gov.in" target="_blank">cybercrime.gov.in</a>) or nearby police station.</p>
+    </div>
+    <div class="step">
+      <h3 data-key="step5">5. Use Security Tools</h3>
+      <p data-key="step5Text">Install updated antivirus, firewall, and security patches to protect your device.</p>
+    </div>
+    <div class="step">
+      <h3 data-key="step6">6. Seek Support</h3>
+      <p data-key="step6Text">If affected emotionally or financially, seek support from family, friends, or helpline numbers.</p>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        siteTitle: "",
+        siteTagline: "",
+        navLogin: "Login",
+        navNews: "Recent News",
+        navCrime: "Cybercrime & E-Payment",
+        navFace: "How to Face",
+        navSolution: "Solution",
+        navMap: "Map",
+        navHelpline: "Helpline Number",
+        navFeedback: "Feedback",
+        pageTitle: "How to Face Cyber Crime",
+        step1: "1. Stay Calm",
+        step1Text: "Do not panic. Take a deep breath and carefully assess the situation before reacting.",
+        step2: "2. Collect Evidence",
+        step2Text: "Take screenshots, save emails, chats, or messages related to the crime. This will help in investigation.",
+        step3: "3. Change Passwords",
+        step3Text: "Immediately change passwords of your accounts, especially email, banking, and social media.",
+        step4: "4. Report the Crime",
+        step4Text: "Report the incident to the official cybercrime website (cybercrime.gov.in) or nearby police station.",
+        step5: "5. Use Security Tools",
+        step5Text: "Install updated antivirus, firewall, and security patches to protect your device.",
+        step6: "6. Seek Support",
+        step6Text: "If affected emotionally or financially, seek support from family, friends, or helpline numbers."
+      },
+      hi: {
+        siteTitle: "",
+        siteTagline: "",
+        navLogin: "लॉगिन",
+        navNews: "हाल की खबरें",
+        navCrime: "साइबर अपराध और भुगतान",
+        navFace: "कैसे सामना करें",
+        navSolution: "समाधान",
+        navMap: "मानचित्र",
+        navHelpline: "हेल्पलाइन नंबर",
+        navFeedback: "प्रतिक्रिया",
+        pageTitle: "साइबर अपराध का सामना कैसे करें",
+        step1: "1. शांत रहें",
+        step1Text: "घबराएँ नहीं। गहरी साँस लें और प्रतिक्रिया देने से पहले स्थिति को ध्यान से समझें।",
+        step2: "2. सबूत एकत्र करें",
+        step2Text: "स्क्रीनशॉट लें, ईमेल, चैट या अपराध से जुड़े संदेश सुरक्षित रखें। यह जांच में मदद करेगा।",
+        step3: "3. पासवर्ड बदलें",
+        step3Text: "तुरंत अपने खातों के पासवर्ड बदलें, खासकर ईमेल, बैंकिंग और सोशल मीडिया।",
+        step4: "4. अपराध की रिपोर्ट करें",
+        step4Text: "घटना की रिपोर्ट आधिकारिक साइबरक्राइम वेबसाइट (cybercrime.gov.in) या नजदीकी पुलिस स्टेशन पर करें।",
+        step5: "5. सुरक्षा उपकरणों का उपयोग करें",
+        step5Text: "नवीनतम एंटीवायरस, फ़ायरवॉल और सुरक्षा अपडेट इंस्टॉल करें।",
+        step6: "6. सहायता लें",
+        step6Text: "यदि भावनात्मक या आर्थिक रूप से प्रभावित हैं, तो परिवार, दोस्तों या हेल्पलाइन नंबर से सहायता लें।"
+      },
+      mr: {
+        siteTitle: "",
+        siteTagline: "",
+        navLogin: "लॉगिन",
+        navNews: "अलीकडील बातम्या",
+        navCrime: "सायबर गुन्हे आणि पेमेंट",
+        navFace: "कसा सामना करावा",
+        navSolution: "उपाय",
+        navMap: "नकाशा",
+        navHelpline: "हेल्पलाइन क्रमांक",
+        navFeedback: "प्रतिसाद",
+        pageTitle: "सायबर गुन्ह्यांचा सामना कसा करावा",
+        step1: "1. शांत रहा",
+        step1Text: "घाबरू नका. खोल श्वास घ्या आणि प्रतिक्रिया देण्यापूर्वी परिस्थिती समजून घ्या.",
+        step2: "2. पुरावे गोळा करा",
+        step2Text: "स्क्रीनशॉट घ्या, ईमेल, चॅट किंवा गुन्ह्याशी संबंधित संदेश जतन करा. हे तपासात मदत करेल.",
+        step3: "3. पासवर्ड बदला",
+        step3Text: "ताबडतोब आपल्या खात्यांचे पासवर्ड बदला, विशेषतः ईमेल, बँकिंग आणि सोशल मीडिया.",
+        step4: "4. गुन्ह्याची तक्रार करा",
+        step4Text: "घटनेची नोंद अधिकृत सायबरक्राइम वेबसाइटवर (cybercrime.gov.in) किंवा जवळच्या पोलिस स्टेशनमध्ये करा.",
+        step5: "5. सुरक्षा साधने वापरा",
+        step5Text: "अपडेटेड अँटीव्हायरस, फायरवॉल आणि सिक्युरिटी पॅच इंस्टॉल करा.",
+        step6: "6. मदत घ्या",
+        step6Text: "भावनिक किंवा आर्थिकदृष्ट्या प्रभावित असल्यास, कुटुंब, मित्र किंवा हेल्पलाइन क्रमांकाची मदत घ्या."
+      }
+    };
+
+    function changeLanguage(lang) {
+      const t = translations[lang];
+      for (let key in t) {
+        const el = document.querySelector(`#${key}`);
+        if (el) el.innerText = t[key];
+        document.querySelectorAll(`[data-key="${key}"]`).forEach(e => e.innerText = t[key]);
+      }
+    }
+  </script>
+
+</body>
+</html>
